@@ -1,4 +1,4 @@
-package uts_tictactoe;
+package tugastiktaktoe;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -18,18 +18,20 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class UTS_TicTacToe implements Runnable{
 /**
  *
  * @author asus
  */
-    private String ip = "10.";
-    private int port = 22222;
-//    private int port;
+
+public class TicTacToe implements Runnable{
+    private String ip = "localhost";
+//    private int port = 22222;
+    private int port;
     private Scanner scanner = new Scanner(System.in);
     private JFrame frame;
     private final int WIDTH = 506;
@@ -78,10 +80,10 @@ public class UTS_TicTacToe implements Runnable{
 	 * </pre>
 	 */
     
-    public UTS_TicTacToe() {
-        System.out.print("Input IP : ");
+    public TicTacToe() {
+        System.out.print("Please input the IP : ");
         ip = scanner.nextLine();
-        System.out.print("Input port : ");
+        System.out.print("Please input the port : ");
         port = scanner.nextInt();
         while(port < 1 || port > 65535) {
             System.out.print("The port you entered was invalid!! Please input another port : ");
@@ -301,7 +303,7 @@ public class UTS_TicTacToe implements Runnable{
     
     @SuppressWarnings("unused")
     public static void main(String[] args) {
-        UTS_TicTacToe ticTacToe = new UTS_TicTacToe();
+        TicTacToe ticTacToe = new TicTacToe();
     }
     
     private class Painter extends JPanel implements MouseListener {
